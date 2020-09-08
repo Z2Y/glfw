@@ -56,6 +56,9 @@ static _GLFWinitconfig _glfwInitHints =
     {
         GLFW_TRUE,  // macOS menu bar
         GLFW_TRUE   // macOS bundle chdir
+    },
+    {
+        GLFW_TRUE, // Win32 messages in fiber
     }
 };
 
@@ -286,6 +289,9 @@ GLFWAPI void glfwInitHint(int hint, int value)
             return;
         case GLFW_COCOA_MENUBAR:
             _glfwInitHints.ns.menubar = value;
+            return;
+        case GLFW_WIN32_MESSAGES_IN_FIBER:
+            _glfwInitHints.win32.msgInFiber = value;
             return;
     }
 
